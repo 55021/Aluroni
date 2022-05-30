@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import filtros from './filtros.json';
 import styles from './Filtros.module.scss';
 import classNames from 'classnames';
@@ -19,18 +19,18 @@ const Filtros = ({filtro, setFiltro} : Props) => {
         return setFiltro(opcao.id);
     }
 
-  return (
-    <div className={styles.filtros}>
-        {filtros.map(opcao => (
-        <button className={classNames({
-            [styles.filtros__filtro]: true,
-            [styles['filtros__filtro--ativo']]: filtro === opcao.id
-        })} key={opcao.id} onClick={() => selecionarFiltro(opcao)}>
-            {opcao.label}
-        </button>
-        ))}
-    </div>
-  )
-}
+    return (
+        <div className={styles.filtros}>
+            {filtros.map(opcao => (
+                <button className={classNames({
+                    [styles.filtros__filtro]: true,
+                    [styles['filtros__filtro--ativo']]: filtro === opcao.id
+                })} key={opcao.id} onClick={() => selecionarFiltro(opcao)}>
+                    {opcao.label}
+                </button>
+            ))}
+        </div>
+    );
+};
 
-export default Filtros
+export default Filtros;

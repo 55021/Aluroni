@@ -11,33 +11,33 @@ interface Props {
 
 const Ordenador = ({ordenador, setOrdenador} : Props) => {
     const [aberto, setAberto] = useState(false);
-    const nomeOrdenador = ordenador && opcoes.find(opcao => opcao.value === ordenador)?.nome // O operador caso não haja o ordenador.
+    const nomeOrdenador = ordenador && opcoes.find(opcao => opcao.value === ordenador)?.nome; // O operador caso não haja o ordenador.
 
-  return (
-    <button
-        className={classNames({
-            [styles.ordenador]: true,
-            [styles['ordenador--ativo']]: ordenador !== ''
-        })}
-        onClick={() => setAberto(!aberto)}
-        onBlur={() => setAberto(false)}>
-        <span>{nomeOrdenador || 'Ordenar por'}</span>
-        {aberto ? <MdKeyboardArrowUp size={20}/> : <MdKeyboardArrowDown size={20}/>}
-        <div className={classNames({
-            [styles.ordenador__options]: true,
-            [styles['ordenador__options--ativo']]: aberto
-        })}>
-            {opcoes.map(opcao => (
-                <div
-                    key={opcao.value}
-                    className={styles.ordenador__option}
-                    onClick={() => setOrdenador(opcao.value)}>
-                    {opcao.nome}
-                </div>
-            ))}
-        </div>
-    </button>
-  )
-}
+    return (
+        <button
+            className={classNames({
+                [styles.ordenador]: true,
+                [styles['ordenador--ativo']]: ordenador !== ''
+            })}
+            onClick={() => setAberto(!aberto)}
+            onBlur={() => setAberto(false)}>
+            <span>{nomeOrdenador || 'Ordenar por'}</span>
+            {aberto ? <MdKeyboardArrowUp size={20}/> : <MdKeyboardArrowDown size={20}/>}
+            <div className={classNames({
+                [styles.ordenador__options]: true,
+                [styles['ordenador__options--ativo']]: aberto
+            })}>
+                {opcoes.map(opcao => (
+                    <div
+                        key={opcao.value}
+                        className={styles.ordenador__option}
+                        onClick={() => setOrdenador(opcao.value)}>
+                        {opcao.nome}
+                    </div>
+                ))}
+            </div>
+        </button>
+    );
+};
 
-export default Ordenador
+export default Ordenador;
