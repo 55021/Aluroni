@@ -1,8 +1,9 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import styles from './PaginaPadrao.module.scss';
+import stylesTema from 'styles/Tema.module.scss';
 
-const PaginaPadrao = () => {
+const PaginaPadrao = ({children} : {children?: React.ReactNode}) => {
     return (
         <>
             <header className={styles.header}>
@@ -10,8 +11,9 @@ const PaginaPadrao = () => {
                     A casa do código e da massa
                 </div>
             </header>
-            <div>
+            <div className={stylesTema.container}>
                 <Outlet/>
+                {children}
             </div>
         </>
     );
